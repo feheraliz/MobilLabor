@@ -1,11 +1,12 @@
 package com.example.mobillabor.model
 
-class Recipe (
-    var id: Int,
-    var name: String,
-    var ingredientList: List<String>,
-    var measurementList: List<String>,
-    var image: String,
-    var category: Category
+import androidx.room.PrimaryKey
+
+data class Recipe (
+    @PrimaryKey(autoGenerate = true)
+    var idMeal: Int = 0,
+    var strMeal: String = "",
+    var strMealThumb: String = "",
+    val strCategory: String = "",
 )
 

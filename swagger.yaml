@@ -1,0 +1,202 @@
+openapi: 3.0.3
+info:
+  title: Swagger RecipeApi
+  version: 1.0.11
+servers:
+  - url: https://www.themealdb.com/api/json/v1/1
+paths:
+  /filter.php:
+    get:
+      parameters:
+        - name: c
+          in: query
+          required: true
+          schema:
+            type: string
+      description: Get all recipes by category
+      operationId: getRecipes
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Recipe'
+  /categories.php:
+    get:
+      description: Get all meal categories
+      operationId: getCategories
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Category'
+  /lookup.php:
+    get:
+      parameters:
+        - name: i
+          in: query
+          required: true
+          schema:
+            type: integer
+      description: Lookup full meal details by id
+      operationId: getRecipeDetails
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RecipeDetail'
+
+components:
+  schemas:
+    Recipe:
+      type: object
+      properties:
+        idMeal:
+          type: integer
+        strMeal:
+          type: string
+        strMealThumb:
+          type: string
+        strCategory:
+          type: string
+      required:
+        - idMeal
+        - strMeal
+        - strMealThumb
+        - strCategory
+    Category:
+      type: object
+      properties:
+        idCategory:
+          type: integer
+        strCategory:
+          type: string
+        strCategoryThumb:
+          type: string
+      required:
+        - idCategory
+        - strCategory
+        - strCategoryThumb
+    RecipeDetail:
+      type: object
+      properties:
+        idMeal:
+          type: integer
+        strMeal:
+          type: string
+        strDrinkAlternate:
+          type: string
+        strCategory:
+          type: string
+        strArea:
+          type: string
+        strInstructions:
+          type: string
+        strMealThumb:
+          type: string
+        strTags:
+          type: string
+        strYoutube:
+          type: string
+        strIngredient1:
+          type: string
+        strIngredient2:
+          type: string
+        strIngredient3:
+          type: string
+        strIngredient4:
+          type: string
+        strIngredient5:
+          type: string
+        strIngredient6:
+          type: string
+        strIngredient7:
+          type: string
+        strIngredient8:
+          type: string
+        strIngredient9:
+          type: string
+        strIngredient10:
+          type: string
+        strIngredient11:
+          type: string
+        strIngredient12:
+          type: string
+        strIngredient13:
+          type: string
+        strIngredient14:
+          type: string
+        strIngredient15:
+          type: string
+        strIngredient16:
+          type: string
+        strIngredient17:
+          type: string
+        strIngredient18:
+          type: string
+        strIngredient19:
+          type: string
+        strIngredient20:
+          type: string
+        strMeasure1:
+          type: string
+        strMeasure2:
+          type: string
+        strMeasure3:
+          type: string
+        strMeasure4:
+          type: string
+        strMeasure5:
+          type: string
+        strMeasure6:
+          type: string
+        strMeasure7:
+          type: string
+        strMeasure8:
+          type: string
+        strMeasure9:
+          type: string
+        strMeasure10:
+          type: string
+        strMeasure11:
+          type: string
+        strMeasure12:
+          type: string
+        strMeasure13:
+          type: string
+        strMeasure14:
+          type: string
+        strMeasure15:
+          type: string
+        strMeasure16:
+          type: string
+        strMeasure17:
+          type: string
+        strMeasure18:
+          type: string
+        strMeasure19:
+          type: string
+        strMeasure20:
+          type: string
+        strSource:
+          type: string
+        strImageSource:
+          type: string
+        strCreativeCommonsConfirmed:
+          type: string
+        dateModified:
+          type: string
+      required:
+        - idMeal
+        - strMeal
+        - strMealThumb
+        - strCategory
