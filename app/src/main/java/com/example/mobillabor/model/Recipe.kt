@@ -6,7 +6,6 @@ data class Recipe (
     @PrimaryKey(autoGenerate = true)
     var idMeal: Int = 0,
     var strMeal: String = "",
-    var strMealThumb: String = "",
-    val strCategory: String = "",
+    var strMealThumb: String = ""
 )
 

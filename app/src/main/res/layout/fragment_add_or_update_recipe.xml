@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp">
+            <ImageView
+                android:id="@+id/addUpdateImage"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_centerHorizontal="true"
+                app:srcCompat="@drawable/baseline_image_24" />
+
+            <Button
+                android:id="@+id/addImageButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/addUpdateImage"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:text="Add Image" />
+
+            <TextView
+                android:id="@+id/titleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/addImageButton"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:gravity="center"
+                android:text="Recipe name"
+                android:layout_marginTop="10dp"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/titleEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/titleTextView"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:inputType="text"
+                android:hint="Recipe name" />
+
+
+            <TextView
+                android:id="@+id/categoryTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:gravity="center"
+                android:text="Recipe category"
+                android:layout_marginTop="10dp"
+                android:layout_below="@id/titleEditText"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/recipeCategoryHolder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_below="@id/categoryTextView"
+                >
+
+                <Spinner
+                    android:id="@+id/spinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_below="@id/categoryTextView"
+                    />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/prepTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/recipeCategoryHolder"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:text="Preparation:"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/preparationEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:maxLines="4"
+                android:scrollbars="vertical"
+                android:layout_below="@id/prepTextView"
+                android:gravity="center"
+                android:hint="Preparation" />
+
+            <TextView
+                android:id="@+id/ingrTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/preparationEditText"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:gravity="center"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:layout_centerHorizontal="true"
+                android:text="Ingredients:" />
+
+            <RelativeLayout
+                android:id="@+id/ingredient1Holder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_below="@id/ingrTextView">
+
+                <EditText
+                    android:id="@+id/ingredient1"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:hint="Ingredient 1"
+                    android:inputType="text" />
+
+                <EditText
+                    android:id="@+id/amount1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/ingredient1"
+                    android:layout_marginStart="10dp"
+                    android:hint="Amount"
+                    android:inputType="text" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/ingredient2Holder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_below="@id/ingredient1Holder">
+
+                <EditText
+                    android:id="@+id/ingredient2"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:hint="Ingredient 2"
+                    android:inputType="text" />
+
+                <EditText
+                    android:id="@+id/amount2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_toEndOf="@id/ingredient2"
+                    android:hint="Amount"
+                    android:inputType="text" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/ingredient3Holder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_below="@id/ingredient2Holder">
+
+                <EditText
+                    android:id="@+id/ingredient3"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:hint="Ingredient 3"
+                    android:inputType="text" />
+
+                <EditText
+                    android:id="@+id/amount3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/ingredient3"
+                    android:layout_marginStart="10dp"
+                    android:hint="Amount"
+                    android:inputType="text" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/ingredient4Holder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_below="@id/ingredient3Holder">
+
+                <EditText
+                    android:id="@+id/ingredient4"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:hint="Ingredient 4"
+                    android:inputType="text" />
+
+                <EditText
+                    android:id="@+id/amount4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/ingredient4"
+                    android:layout_marginStart="10dp"
+                    android:hint="Amount"
+                    android:inputType="text" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/ingredient5Holder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_below="@id/ingredient4Holder">
+
+                <EditText
+                    android:id="@+id/ingredient5"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:hint="Ingredient 5"
+                    android:inputType="text" />
+
+                <EditText
+                    android:id="@+id/amount5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/ingredient5"
+                    android:layout_marginStart="10dp"
+                    android:hint="Amount"
+                    android:inputType="text" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/ingredient6Holder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_below="@id/ingredient5Holder">
+
+                <EditText
+                    android:id="@+id/ingredient6"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:hint="Ingredient 6"
+                    android:inputType="text" />
+
+                <EditText
+                    android:id="@+id/amount6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_toEndOf="@id/ingredient6"
+                    android:hint="Amount"
+                    android:inputType="text" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/ingredient7Holder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_below="@id/ingredient6Holder">
+
+                <EditText
+                    android:id="@+id/ingredient7"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:hint="Ingredient 7"
+                    android:inputType="text" />
+
+                <EditText
+                    android:id="@+id/amount7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/ingredient7"
+                    android:layout_marginStart="10dp"
+                    android:hint="Amount"
+                    android:inputType="text" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/ingredient8Holder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_below="@id/ingredient7Holder">
+
+                <EditText
+                    android:id="@+id/ingredient8"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:hint="Ingredient 8"
+                    android:inputType="text" />
+
+                <EditText
+                    android:id="@+id/amount8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/ingredient8"
+                    android:layout_marginStart="10dp"
+                    android:hint="Amount"
+                    android:inputType="text" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/ingredient9Holder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_below="@id/ingredient8Holder">
+
+                <EditText
+                    android:id="@+id/ingredient9"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:hint="Ingredient 9"
+                    android:inputType="text" />
+
+                <EditText
+                    android:id="@+id/amount9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_toEndOf="@id/ingredient9"
+                    android:hint="Amount"
+                    android:inputType="text" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/ingredient10Holder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_below="@id/ingredient9Holder">
+
+                <EditText
+                    android:id="@+id/ingredient10"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:hint="Ingredient 10"
+                    android:inputType="text" />
+
+                <EditText
+                    android:id="@+id/amount10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/ingredient10"
+                    android:layout_marginStart="10dp"
+                    android:hint="Amount"
+                    android:inputType="text" />
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/saveButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ingredient10Holder"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:text="Save" />
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>
