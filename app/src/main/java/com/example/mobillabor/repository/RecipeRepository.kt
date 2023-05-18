@@ -1,9 +1,7 @@
 package com.example.mobillabor.repository
 
 import com.example.mobillabor.data.RecipeDao
-import com.example.mobillabor.model.Category
-import com.example.mobillabor.model.Recipe
-import com.example.mobillabor.model.RecipeDetail
+import com.example.mobillabor.model.*
 import com.example.mobillabor.model.mapper.toRecipe
 import com.example.mobillabor.network.RecipeApi
 import kotlinx.coroutines.flow.Flow
@@ -30,10 +28,10 @@ class RecipeRepository @Inject constructor(
         }
     }
 
-    suspend fun getRecipesFromApi() : Flow<DataState<List<Recipe>>> = flow{
+    suspend fun getRecipesFromApi(category: String) : Flow<DataState<RecipeList>> = flow{
         emit(DataState.Loading)
         try {
-            val recipes = recipeApi.getRecipes()
+            val recipes = recipeApi.getRecipes(category)
             emit(DataState.Success(recipes))
         }
         catch(e: Exception) {
@@ -41,7 +39,7 @@ class RecipeRepository @Inject constructor(
         }
     }
 
-    suspend fun getCategoriesFromApi() : Flow<DataState<List<Category>>> = flow{
+    suspend fun getCategoriesFromApi() : Flow<DataState<CategoryList>> = flow{
         emit(DataState.Loading)
         try {
             val categories = recipeApi.getCategories()
@@ -63,7 +61,7 @@ class RecipeRepository @Inject constructor(
         }
     }
 
-    suspend fun getRecipeDetailsFromApi(id: Int): Flow<DataState<RecipeDetail>> = flow{
+    suspend fun getRecipeDetailsFromApi(id: Int): Flow<DataState<RecipeDetailList>> = flow{
         emit(DataState.Loading)
         try {
             val recipe = recipeApi.getRecipeDetails(id)

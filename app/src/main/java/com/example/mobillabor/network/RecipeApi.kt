@@ -1,8 +1,6 @@
 package com.example.mobillabor.network
 
-import com.example.mobillabor.model.Category
-import com.example.mobillabor.model.Recipe
-import com.example.mobillabor.model.RecipeDetail
+import com.example.mobillabor.model.*
 import retrofit2.http.*
 
 interface RecipeApi {
@@ -10,16 +8,16 @@ interface RecipeApi {
     @GET("filter.php")
     suspend fun getRecipes(
         @Query("c") type: String = "Recipe",
-    ) : List<Recipe>
+    ) : RecipeList
 
     @GET("categories.php")
     suspend fun getCategories(
-    ) : List<Category>
+    ) : CategoryList
 
     @GET("lookup.php")
     suspend fun getRecipeDetails(
         @Query("i") type: Int,
-    ) : RecipeDetail
+    ) : RecipeDetailList
 
     // DOES NOT EXIST ON API
     @POST("add.php")

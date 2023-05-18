@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/category_list_fragment"
+    android:id="@+id/main">
+
+    <fragment
+        android:id="@+id/recipe_detail_fragment"
+        android:name="com.example.mobillabor.ui.details.DetailsFragment"
+        android:label="Recipe Details"
+        tools:layout="@layout/fragment_details">
+        <action
+            android:id="@+id/action_recipe_detail_fragment_to_recipe_list_fragment"
+            app:destination="@id/recipe_list_fragment" />
+        <action
+            android:id="@+id/action_recipe_detail_fragment_to_add_or_update_fragment"
+            app:destination="@id/add_or_update_fragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/recipe_list_fragment"
+        android:name="com.example.mobillabor.ui.recipeList.RecipeListFragment"
+        android:label="Recipes"
+        tools:layout="@layout/fragment_recipe_list">
+        <action
+            android:id="@+id/action_recipe_list_fragment_to_recipe_detail_fragment"
+            app:destination="@id/recipe_detail_fragment" />
+        <action
+            android:id="@+id/action_recipe_list_fragment_to_category_list_fragment"
+            app:destination="@id/category_list_fragment" />
+        <action
+            android:id="@+id/action_recipe_list_fragment_to_add_or_update_fragment"
+            app:destination="@id/add_or_update_fragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/category_list_fragment"
+        android:name="com.example.mobillabor.ui.categoryList.CategoryListFragment"
+        android:label="Categories"
+        tools:layout="@layout/fragment_category_list">
+        <action
+            android:id="@+id/action_category_list_fragment_to_recipe_list_fragment"
+            app:destination="@id/recipe_list_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/add_or_update_fragment"
+        android:name="com.example.mobillabor.ui.addOrUpdate.AddOrUpdateRecipeFragment"
+        android:label="Add or update"
+        tools:layout="@layout/fragment_add_or_update_recipe">
+        <action
+            android:id="@+id/action_add_or_update_fragment_to_recipe_list_fragment"
+            app:destination="@id/recipe_list_fragment" />
+        <action
+            android:id="@+id/action_add_or_update_fragment_to_recipe_detail_fragment"
+            app:destination="@id/recipe_detail_fragment" />
+    </fragment>
+
+</navigation>

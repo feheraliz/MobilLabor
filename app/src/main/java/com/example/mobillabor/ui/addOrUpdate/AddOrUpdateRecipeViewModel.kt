@@ -1,9 +1,10 @@
-package com.example.mobillabor.ui.details
+package com.example.mobillabor.ui.addOrUpdate
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.mobillabor.model.CategoryList
 import com.example.mobillabor.model.RecipeDetail
 import com.example.mobillabor.model.RecipeDetailList
 import com.example.mobillabor.repository.DataState
@@ -15,26 +16,32 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class DetailsViewModel @Inject constructor(
+class AddOrUpdateRecipeViewModel @Inject constructor(
     private val recipeRepository: RecipeRepository
 ) : ViewModel() {
 
     private val _id = MutableLiveData<Int>()
 
-    private val _dataState : MutableLiveData<DataState<RecipeDetailList>> = MutableLiveData()
+    private val _dataState: MutableLiveData<DataState<RecipeDetailList>> = MutableLiveData()
 
-    val dataState : LiveData<DataState<RecipeDetailList>>
+    val dataState: LiveData<DataState<RecipeDetailList>>
         get() = _dataState
 
     private val _dataStateDb : MutableLiveData<DataState<RecipeDetail>> = MutableLiveData()
 
     val dataStateDb : LiveData<DataState<RecipeDetail>>
         get() = _dataStateDb
+
+    private val _dataStateCategory: MutableLiveData<DataState<CategoryList>> = MutableLiveData()
+
+    val dataStateCategory: LiveData<DataState<CategoryList>>
+        get() = _dataStateCategory
+
     fun start(id: Int) {
         _id.value = id
         viewModelScope.launch {
-            recipeRepository.getRecipeDetailsFromApi(_id.value!!).onEach {
-                    dataState -> _dataState.value = dataState }.launchIn(viewModelScope)
+            recipeRepository.getRecipeDetailsFromApi(_id.value!!)
+                .onEach { dataState -> _dataState.value = dataState }.launchIn(viewModelScope)
         }
     }
 
@@ -46,9 +53,25 @@ class DetailsViewModel @Inject constructor(
         }
     }
 
-    fun deleteRecipe(recipe: RecipeDetail) {
+    fun addRecipe(recipe: RecipeDetail) {
         viewModelScope.launch {
-            recipeRepository.deleteRecipe(recipe)
+            recipeRepository.addRecipe(recipe)
         }
     }
+
+    fun updateRecipe(recipe: RecipeDetail) {
+        viewModelScope.launch {
+            recipeRepository.updateRecipe(recipe)
+        }
+    }
+
+    fun getCategories(){
+        viewModelScope.launch {
+            recipeRepository.getCategoriesFromApi()
+                .onEach { dataState -> _dataStateCategory.value = dataState }
+                .launchIn(viewModelScope)
+        }
+    }
+
+
 }

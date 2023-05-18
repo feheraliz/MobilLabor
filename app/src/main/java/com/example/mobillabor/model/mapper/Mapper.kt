@@ -7,6 +7,5 @@ fun RecipeDetail.toRecipe() =
     Recipe(
         idMeal = this.idMeal,
         strMeal = this.strMeal,
-        strMealThumb = this.strMealThumb,
-        strCategory = this.strCategory,
+        strMealThumb = this.strMealThumb
     )
